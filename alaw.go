@@ -35,7 +35,7 @@ func ALawEncodeSample(s int16) uint8 {
 	if s >= 0 {
 		return aLawCompressTable[s>>4]
 	}
-	return 0x7f & aLawCompressTable[-s>>4]
+	return 0x7f & aLawCompressTable[-int(s)>>4]
 }
 
 // ALawDecodeSample decodes an a-law sample to PCM16.
